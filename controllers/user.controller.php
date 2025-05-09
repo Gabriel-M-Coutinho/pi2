@@ -48,7 +48,7 @@ class UserController
     public function showRegisterForm()
     {
 
-        require_once 'views/register_form';
+        require_once 'views/register_form.php';
     }
 
     public function register()

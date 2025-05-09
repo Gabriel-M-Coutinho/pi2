@@ -31,10 +31,14 @@ $routes = [
     }
 },
 
-    '/register' => function () {
-        $controller = new UserController();
+ '/register' => function () {
+    $controller = new UserController();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $controller->register();
-    },
+    } else {
+        $controller->showRegisterForm();
+    }
+},
 
     '/home' => function () {
         if (!isset($_SESSION['user'])) {
