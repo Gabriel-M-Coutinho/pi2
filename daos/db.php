@@ -5,7 +5,7 @@ abstract class Database
 
     public function __construct()
     {
-        $host = "localhost"; // or "db" if running in Docker
+        $host = "localhost"; 
         $user = "gabriel";
         $password = "123123w";
         $databaseName = "clinictrack";
