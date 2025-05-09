@@ -1,3 +1,8 @@
+<?php 
+    echo "bom dia";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +12,6 @@
 </head>
 <body>
     <h1>bom dia</h1>
+    <p>ola</p>
 </body>
 </html>
