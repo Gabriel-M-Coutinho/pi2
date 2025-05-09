@@ -1,5 +1,5 @@
 <?php
-
+require_once 'db.php';
 class UserDAO extends Database
 {
     public function __construct()

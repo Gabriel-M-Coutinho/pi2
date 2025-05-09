@@ -1,17 +1,62 @@
-<?php 
-    echo "bom dia";
+<?php
+session_start();
 
-?>
+require_once 'controllers/user.controller.php';
+require_once 'controllers/home.controller.php';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>bom dia</h1>
-    <p>ola</p>
-</body>
-</html>
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+
+$routes = [
+    '/' => function () {
+
+        if (isset($_SESSION['user'])) {
+            $controller = new HomeController();
+            $controller->showHome();
+
+        } else {
+            $controller = new UserController();
+            $controller->showLoginForm();
+        }
+        exit;
+    },
+
+    '/login' => function () {
+    $controller = new UserController();
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $controller->login(); 
+    } else {
+        $controller->showLoginForm(); 
+    }
+},
+
+    '/register' => function () {
+        $controller = new UserController();
+        $controller->register();
+    },
+
+    '/home' => function () {
+        if (!isset($_SESSION['user'])) {
+            header('Location: /login');
+            exit;
+        }
+
+        $controller = new HomeController();
+        $controller->showHome();
+    },
+
+    '/logout' => function () {
+        session_destroy();
+        header('Location: /login');
+        exit;
+    },
+];
+
+
+if (isset($routes[$uri])) {
+    $routes[$uri]();
+} else {
+    http_response_code(404);
+    echo "404 - Page not found";
+}
