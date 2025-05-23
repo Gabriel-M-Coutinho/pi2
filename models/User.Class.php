@@ -1,15 +1,18 @@
 <?php
-abstract class User{
+abstract class User {
     
     public function __construct(
-        private string $name = "",
+        private int $id_user,
         private string $email = "",
-        private string $password = ""
+        private string $password = "",
+        private array $order = array()
     ) {}
 
-    public function getName()
+
+    // ============ GETs ============
+    public function getIdUser()
     {
-        return $this->name;
+        return $this->id_user;
     }
 
     public function getEmail()
@@ -22,12 +25,13 @@ abstract class User{
         return $this->password;
     }
 
-
-    public function setName($name)
+    public function getOrder()
     {
-        $this->name = $name;
+        return $this->order;
     }
 
+
+    // ============ SETs ============
     public function setEmail($email)
     {
         $this->email = $email;
@@ -38,6 +42,10 @@ abstract class User{
         $this->password = $password;
     }
 
+    public function setPurchase($order)
+    {
+        $this->order[] = $order; 
+    }
 }
 
 ?>
