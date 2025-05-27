@@ -39,6 +39,22 @@ abstract class Database
                 email VARCHAR(50) UNIQUE,
                 password VARCHAR(255)
             );
+
+            CREATE TABLE IF NOT EXISTS users_common (
+                id_users_common BIGINT AUTO_INCREMENT PRIMARY KEY,
+                user_id BIGINT,
+                name VARCHAR(255) NOT NULL,
+                cpf VARCHAR(11) NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES users(id_user)
+            );
+
+            CREATE TABLE IF NOT EXISTS users_company (
+                id_users_company BIGINT AUTO_INCREMENT PRIMARY KEY,
+                user_id BIGINT,
+                corporate_name VARCHAR(255) NOT NULL,
+                cnpj VARCHAR(14) NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES users(id_user)
+            );
         ";
 
         $this->connection->exec($sql);
