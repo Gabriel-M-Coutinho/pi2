@@ -55,6 +55,14 @@ abstract class Database
                 cnpj VARCHAR(14) NOT NULL,
                 FOREIGN KEY (user_id) REFERENCES users(id_user)
             );
+
+            CREATE TABLE IF NOT EXISTS orders (
+                id_order BIGINT AUTO_INCREMENT PRIMAY KEY,
+                date_order DATETIME DEFAULT CURRENT_TIMESTAMP,
+                date_payment DATETIME DEFAULT CURRENT_TIMESTAMP,
+                status_order ENUM('Pendente', 'Pago', 'Cancelado'),
+                method_payment ENUM('Pix', 'Credito', 'Debito'),
+            );
         ";
 
         $this->connection->exec($sql);

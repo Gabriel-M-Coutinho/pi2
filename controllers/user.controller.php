@@ -6,48 +6,42 @@ require_once 'daos/user.dao.php';
 
 class UserController
 {
-
-
-
-
    public function login()
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
-        $userDAO = new UserDAO();
-        $user = $userDAO->login($email, $password); 
+            $userDAO = new UserDAO();
+            $user = $userDAO->login($email, $password); 
 
-        if ($user) {
+            if ($user) {
       
-            $_SESSION['user'] = [
-                'id' => $user['id'],       
-                'name' => $user['name'],
-                'email' => $user['email']
-            ];
+                $_SESSION['user'] = [
+                    'id' => $user['id'],       
+                    'name' => $user['name'],
+                    'email' => $user['email']
+                ];
 
-
-            header('Location: /home');
-            exit;
-        } else {
-            echo "Invalid email or password.";
+                header('Location: /home');
+                exit;
+            }
+            else
+            {
+                echo "Email ou senha inválido.";
+            }
         }
     }
-}
 
-
-
-        public function showLoginForm()
+    public function showLoginForm()
     {
-       
         require_once 'views/login_form.php';
     }
 
 
     public function showRegisterForm()
     {
-
         require_once 'views/register_form.php';
     }
 
@@ -60,9 +54,7 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-
             $user = new User($name, $age, $email, $password);
-
 
             $userDAO = new UserDAO();
             echo $userDAO->register($user);
