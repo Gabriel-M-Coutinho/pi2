@@ -39,12 +39,11 @@ class UserController
         require_once 'views/login_form.php';
     }
 
-
     public function showRegisterForm()
     {
         require_once 'views/register_form.php';
     }
-
+    
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
