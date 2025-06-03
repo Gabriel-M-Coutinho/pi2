@@ -1,20 +1,25 @@
 <?php
 final class UserCompany extends User
 {
+    private int $id_user;
+
     public function __construct(
         private string $company_name = "",
         private string $cnpj = "",
-        int $id_user,
         string $email,
         string $password,
-        array $order
     )
     {
-        parent:: __construct($id_user, $email, $password, $order());
+        parent:: __construct( $email, $password);
     }
 
 
     // ============ GETs ============
+        public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
     public function getCompanyName()
     {
         return $this->company_name;

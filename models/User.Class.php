@@ -1,11 +1,12 @@
 <?php
 abstract class User {
-    
+    private int $id_user;
+    private array $order = array();
+
     public function __construct(
-        private int $id_user,
         private string $email = "",
         private string $password = "",
-        private array $order = array()
+       
     ) {}
 
 
@@ -42,7 +43,7 @@ abstract class User {
         $this->password = $password;
     }
 
-    public function setPurchase($order)
+    public function setOrder($order)
     {
         $this->order[] = $order; 
     }

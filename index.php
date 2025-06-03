@@ -38,20 +38,13 @@ $routes = [
 
     '/login' => function () {
         $controller = new UserController();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $controller->login(); 
-        } else {
-            $controller->showLoginForm(); 
-        }
+        $controller->login(); 
     },
 
     '/register' => function () {
         $controller = new UserController();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $controller->register();
-        } else {
-            $controller->showRegisterForm();
-        }
+        $controller->register();
+  
     },
 
     '/logout' => function () {

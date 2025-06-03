@@ -1,19 +1,26 @@
 <?php
 final class UserCommon extends User
 {
+    private int $id_user;
+    
     public function __construct(
-        private string $name = "",
-        private string $cpf = "",
-        int $id_user,
         string $email,
         string $password,
-        array $order
+        private string $name = "",
+        private string $cpf = "",
+      
+
     )
     {
-        parent:: __construct($id_user, $email, $password, $order());
+        parent:: __construct( $email, $password);
     }
 
     // ============ GETs ============
+
+    public function getId(){
+        return $this->id_user;
+    }
+
     public function getName()
     {
         return $this->name;
@@ -26,6 +33,9 @@ final class UserCommon extends User
 
 
     // ============ SETs ============
+
+
+
     public function setName($name)
     {
         $this->name = $name;
