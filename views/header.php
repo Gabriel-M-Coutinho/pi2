@@ -69,7 +69,7 @@
         </div>
         <!-- login -->
         <div id="user">
-          <a name="login" href="index.php?action=logout">SAIR</a>
+          <a name="login" href="/logout">SAIR</a>
         </div>
       </nav>
       <!-- NAV - END -->
