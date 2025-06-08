@@ -44,7 +44,6 @@ $routes = [
     '/register' => function () {
         $controller = new UserController();
         $controller->register();
-  
     },
 
     '/logout' => function () {
