@@ -20,7 +20,7 @@
     </script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LeadSearch | Recuperar senha</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <!-- GOOGLE FONTS - IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +64,7 @@
             </button>
             <p class="text-center">
               Não precisa recuperar a senha?
-              <a href="./login_form2.php" class="font-bold hover:underline"
+              <a href="/login" class="font-bold hover:underline"
                 >Entrar</a
               >
             </p>

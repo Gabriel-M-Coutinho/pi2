@@ -6,9 +6,9 @@ abstract class Database
     public function __construct()
     {
         $host = "localhost"; 
-        $user = "gabriel";
-        $password = "123123w";
-        $databaseName = "clinictrack";
+        $user = "root";
+        $password = "";
+        $databaseName = "leadsearch";
 
         try {
 
@@ -32,8 +32,7 @@ abstract class Database
     private function createTables()
     {
         $sql = "
-    CREATE DATABASE IF NOT EXISTS LeadsSearch CHAR SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-    USE LeadsSearch;
+    USE LeadSearch;
 
     CREATE TABLE IF NOT EXISTS partner_qualifications (
 	    id_partner_qualification BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

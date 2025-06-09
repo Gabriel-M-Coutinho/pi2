@@ -20,7 +20,7 @@
     </script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LeadSearch</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <!-- GOOGLE FONTS - IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +41,7 @@
       >
         <!-- logo -->
         <div id="logo">
-          <a name="logo" href="/index.html">
+          <a name="logo" href="/">
             <svg
               width="60"
               height="57"

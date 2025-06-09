@@ -5,7 +5,6 @@ require_once 'controllers/user.controller.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-
 $routes = [
     '/' => function () {
         require_once 'views/home.php';
@@ -47,6 +46,7 @@ $routes = [
     },
 
     '/logout' => function () {
+        $_SESSION = array();
         session_destroy();
         header('Location: /login');
         exit;

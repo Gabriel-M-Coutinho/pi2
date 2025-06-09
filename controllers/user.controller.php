@@ -1,8 +1,7 @@
 <?php
 
 // Inclui as classes necessárias
-require_once 'models/User.Class.php';
-require_once 'models/UserCommon.class.php';
+require_once 'models/User.class.php';
 require_once 'daos/user.dao.php';
 
 class UserController
@@ -24,7 +23,7 @@ class UserController
                     'email' => $user['email_user']
                 ];
 
-                header('Location: /home');
+                header('Location: /');
                 exit;
             }
             else
@@ -61,7 +60,8 @@ class UserController
                 break;
             }
 
-            if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($type_user)) {
+            if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($type_user))
+            {
                 echo "Preencha todos os campos.";
                 return;
             }
@@ -79,7 +79,7 @@ class UserController
             
             header('Location: /login');
         }else{
-            require_once 'views/register_form2.php';
+            require_once 'views/register_form.php';
         }
     }
 }
