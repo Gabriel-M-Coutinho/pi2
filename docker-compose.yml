@@ -14,7 +14,7 @@ services:
     image: mysql:8.0  # Usando a imagem oficial do MySQL
     environment:
       MYSQL_ROOT_PASSWORD: 1238425wky22  # Senha do root
-      MYSQL_DATABASE: clinictrack  # Nome do banco de dados inicial
+      MYSQL_DATABASE: leadsearch  # Nome do banco de dados inicial
       MYSQL_USER: gabriel  # Nome de usuário
       MYSQL_PASSWORD: 123123w  # Senha do usuário
     ports:

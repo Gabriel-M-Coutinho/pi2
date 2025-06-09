@@ -1,26 +1,23 @@
 <?php
+
 abstract class Database
 {
     protected $connection;
 
     public function __construct()
     {
-        $host = "localhost"; 
-        $user = "root";
-        $password = "";
+        $host = "db"; 
+        $user = "gabriel";
+        $password = "123123w"; 
         $databaseName = "leadsearch";
 
         try {
-
-            $pdo = new PDO("mysql:host=$host", $user, $password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-            $pdo->exec("CREATE DATABASE IF NOT EXISTS $databaseName");
-            $pdo = null;
-
-
-            $this->connection = new PDO("mysql:host=$host;dbname=$databaseName", $user, $password);
+            // Conectar diretamente ao banco existente
+            $this->connection = new PDO(
+                "mysql:host=$host;dbname=$databaseName;charset=utf8mb4", 
+                $user, 
+                $password
+            );
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $this->createTables();
@@ -32,7 +29,7 @@ abstract class Database
     private function createTables()
     {
         $sql = "
-    USE LeadSearch;
+    USE leadsearch;
 
     CREATE TABLE IF NOT EXISTS partner_qualifications (
 	    id_partner_qualification BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

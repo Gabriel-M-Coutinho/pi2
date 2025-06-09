@@ -75,7 +75,7 @@ class UserController
             $user = new User($email, $password, $name, $document, $user_type);
 
             $userDAO = new UserDAO();
-            echo $userDAO->register($user);
+            $userDAO->register($user);
             
             header('Location: /login');
         }else{
