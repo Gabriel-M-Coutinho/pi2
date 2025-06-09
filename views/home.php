@@ -75,7 +75,7 @@
           </div>
         </form>
         <a
-          href="./Sobre/index.html#about-lead"
+          href="/about"
           class="hover:underline opacity-50 hover:opacity-100 -mt-3"
           >O que é um lead?
         </a>
