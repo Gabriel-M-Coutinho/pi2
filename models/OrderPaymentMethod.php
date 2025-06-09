@@ -1,5 +1,5 @@
 <?php
-enum OrderPaymentMethod {
+enum OrderMethodPayment {
     case PIX;
     case CREDIT;
     case DEBIT;

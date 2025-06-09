@@ -1,25 +1,20 @@
 <?php
 class Order
 {
+    private int $id_order;
+    private int $user_id;
+
     public function __construct(
-        private array $company = array(),
-        private User $user,
         private DateTime $date_order,
         private DateTime $date_payment,
-        private OrderStatus $status,
-        private OrderPaymentMethod $payment_method
+        private OrderMethodPayment $method_payment
     ){}
 
     
     // ============ GETs ============
-    public function getCompany()
+    public function getIdOrder()
     {
-        return $this->company;
-    }
-
-    public function getUser()
-    {
-        return $this->user;
+        return $this->id_order;
     }
 
     public function getDateOrder()
@@ -32,28 +27,18 @@ class Order
         return $this->date_payment;
     }
 
-    public function getStatus()
+    public function getMethodPayment()
     {
-        return $this->status;
+        return $this->method_payment;
     }
 
-    public function getPaymentMethod()
+    public function getUserId()
     {
-        return $this->payment_method;
+        return $this->user_id;
     }
 
 
     // ============ SETs ============
-    public function setCompany($company)
-    {
-        $this->company[] = $company;
-    }
-
-    public function setUser(User $user)
-    {
-        $this->user = $user;
-    }
-
     public function setDateOrder($date_order)
     {
         $this->date_order = $date_order;
@@ -64,14 +49,14 @@ class Order
         $this->date_payment = $date_payment;
     }
 
-    public function setStatus(OrderStatus $status)
+    public function setMethodPayment(OrderMethodPayment $method_payment)
     {
-        $this->status = $status;
+        $this->method_payment = $method_payment;
     }
 
-    public function setPaymentMethod(OrderPaymentMethod $payment_method)
+    public function setUserId($user_id)
     {
-        $this->payment_method = $payment_method;
+        $this->user_id = $user_id;
     }
 }
 ?>
