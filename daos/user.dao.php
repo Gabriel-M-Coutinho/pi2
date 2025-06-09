@@ -6,32 +6,35 @@ class UserDAO extends Database
     {
         parent::__construct();
     }
+    
 
     public function register($user)
     {
-        $sql = "INSERT INTO users (name, age, email, password) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO users (email_user, password_user, name_user, document_user, user_type) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->connection->prepare($sql);
 
-        $stmt->bindValue(1, $user->getName());
-        $stmt->bindValue(2, $user->getAge());
-        $stmt->bindValue(3, $user->getEmail());
-        $stmt->bindValue(4, password_hash($user->getPassword(), PASSWORD_DEFAULT));
+        $stmt->bindValue(1, $user->getEmail());
+        $stmt->bindValue(2, password_hash($user->getPassword(), PASSWORD_DEFAULT));
+        $stmt->bindValue(3, $user->getName());
+        $stmt->bindValue(4, $user->getDocument());
+        $stmt->bindValue(5, $user->getUserType());
 
         $stmt->execute();
 
         return "User registered successfully!";
     }
 
+
     public function login($email, $password)
     {
-        $sql = "SELECT * FROM users WHERE email = ?";
+        $sql = "SELECT * FROM users WHERE email_user = ?";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(1, $email);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['password_user'])) {
             return $user; 
         }
 

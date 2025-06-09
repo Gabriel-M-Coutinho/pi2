@@ -7,14 +7,10 @@ require_once 'daos/user.dao.php';
 
 class UserController
 {
-
-
-
-
    public function login()
     {
         if($_POST){
-             $email = $_POST['email'];
+            $email = $_POST['email'];
             $password = $_POST['password'];
 
             $userDAO = new UserDAO();
@@ -45,32 +41,36 @@ class UserController
     public function register()
     {
         if ($_POST) {
-
-            $type_user = $_POST["type_user"];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $type_user = $_POST['type_user'];
 
-            switch ($type_user) {
+            switch($type_user)
+            {
                 case 'user_common':
-                    $name = $_POST['name'];
-                    $cpf = $_POST["cpf"];
-                    //$user = new UserCommon($name,$cpf,$email,$password);
-                    break;
-                
+                    $user_type = "PF";
+                    $name = $_POST['name'];  
+                    $document = $_POST['cpf'];
+                break;
+
                 case 'user_company':
-                    $cpf = $_POST["cnpj"];
-                    $corporate_name = $_POST["corporate_name"];
-                    break;
+                    $user_type = "PJ";
+                    $name = $_POST['corporate_name'];  
+                    $document = $_POST['cnpj'];
+                break;
             }
-         
-            $cpf = $_POST["cpf"];
-       
 
+            if (empty($email) || empty($password) || empty($name) || empty($document) || empty($type_user)) {
+                echo "Preencha todos os campos.";
+                return;
+            }
 
-            //$user = new User($name, $age, $email, $password);
+            $user = new User($email, $password, $name, $document, $user_type);
 
-            //$userDAO = new UserDAO();
-            //echo $userDAO->register($user);
+            $userDAO = new UserDAO();
+            echo $userDAO->register($user);
+            
+            header('Location: /login');
         }else{
             require_once 'views/register_form2.php';
         }

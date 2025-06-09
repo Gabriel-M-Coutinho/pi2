@@ -43,7 +43,7 @@
           class="flex flex-col justify-center items-center h-full md:w-1/2 gap-8"
         >
           <h2 class="font-bold">Criar uma conta</h2>
-          <form id="form-login" class="flex flex-col justify-center items-center w-full gap-6">
+          <form method="POST" id="form-login" class="flex flex-col justify-center items-center w-full gap-6">
             <div class="max-w-[80%] w-full flex flex-col">
               <label for="email" class="">Email</label>
               <input type="email" name="email" id="email" class="form-imput" />
@@ -67,18 +67,18 @@
                 <input type="name" name="name" id="name" class="form-imput"/>
               </div>
               <div class="flex flex-col">
-                <label for="cpf" class="">CPF</label>
-                <input type="cpf" name="cpf" id="cpf" class="form-imput" placeholder="000.000.000-00"/>
+                <label for="document" class="">CPF</label>
+                <input type="document" name="cpf" id="document" class="form-imput" placeholder="000.000.000-00"/>
               </div>
             </div>
             <div id="selectPJ" class="max-w-[80%] w-full">
               <div class="flex flex-col">
-                <label for="corporate_name" class="">Razão Social</label>
-                <input type="corporate_name" name="corporate_name" id="corporate_name" class="form-imput"/>
+                <label for="name" class="">Razão Social</label>
+                <input type="name" name="corporate_name" id="name" class="form-imput"/>
               </div>
               <div class="flex flex-col">
-                <label for="cnpj" class="">CNPJ</label>
-                <input type="cnpj" name="cnpj" id="cnpj" class="form-imput" placeholder="00.000.000/0000-00"/>
+                <label for="document" class="">CNPJ</label>
+                <input type="document" name="cnpj" id="document" class="form-imput" placeholder="00.000.000/0000-00"/>
               </div>
             </div>
             <button type="submit" id="botao-principal" class="py-3 px-12 rounded">Criar</button>
