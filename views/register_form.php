@@ -95,7 +95,7 @@
           class="md:flex flex-col justify-center items-center h-full w-1/2 hidden"
         >
           <img
-            src="/pi2/assets/imgs/login.png"
+            src="/assets/imgs/login.png"
             alt="Login"
             class="w-full h-full object-cover opacity-50"
           />
