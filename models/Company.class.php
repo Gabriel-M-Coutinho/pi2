@@ -64,7 +64,7 @@ class Company
 
     public function setLegalName($legal_name)
     {
-        $this->legal_name $legal_name;
+        $this->legal_name = $legal_name;
     }
 
     public function setResponsibleQualification($responsible_qualification)

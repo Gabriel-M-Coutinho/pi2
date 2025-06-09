@@ -84,7 +84,7 @@
             <button type="submit" id="botao-principal" class="py-3 px-12 rounded">Criar</button>
             <p class="text-center">
               Já tem uma conta?
-              <a href="./login_form2.php" class="font-bold hover:underline">Entrar</a>
+              <a href="/login" class="font-bold hover:underline">Entrar</a>
             </p>
           </form>
         </div>

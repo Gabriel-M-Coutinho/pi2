@@ -50,9 +50,9 @@
             <button type="submit" id="botao-principal" class="py-3 px-12 rounded">Entrar</button>
             <p class="text-center">
               Não possui uma conta?
-              <a href="./register_form2.php" class="font-bold hover:underline">Cadastre-se</a>
+              <a href="/register" class="font-bold hover:underline">Cadastre-se</a>
             </p>
-            <a href="./reset.php" class="font-bold hover:underline">Esqueci minha senha</a>
+            <a href="/reset" class="font-bold hover:underline">Esqueci minha senha</a>
           </form>
         </div>
         <!-- FORM - END -->

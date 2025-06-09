@@ -19,9 +19,9 @@ class UserController
             if ($user) {
       
                 $_SESSION['user'] = [
-                    'id' => $user['id'],       
-                    'name' => $user['name'],
-                    'email' => $user['email']
+                    'id' => $user['id_user'],       
+                    'name' => $user['name_user'],
+                    'email' => $user['email_user']
                 ];
 
                 header('Location: /home');
@@ -43,6 +43,7 @@ class UserController
         if ($_POST) {
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $password_confirm = $_POST['password_confirm'];
             $type_user = $_POST['type_user'];
 
             switch($type_user)
@@ -60,8 +61,14 @@ class UserController
                 break;
             }
 
-            if (empty($email) || empty($password) || empty($name) || empty($document) || empty($type_user)) {
+            if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($type_user)) {
                 echo "Preencha todos os campos.";
+                return;
+            }
+
+            if($password !== $password_confirm)
+            {
+                echo "Senha e confirmar senha não correspondem.";
                 return;
             }
 
