@@ -100,8 +100,9 @@
       </footer>
       <!-- FOOTER - END -->
     </main>
-    <script src="/js/register_form.js"></script>
+    <script src="../js/register_form.js"></script>
   </body>
-  <script type="text/javascript" src="/js/script.js" defer></script>
-  <script type="text/javascript" src="/js/cnpj.js" defer></script>
+
+
+
 </html>

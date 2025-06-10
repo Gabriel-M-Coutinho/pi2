@@ -189,7 +189,7 @@
         </div>
       </section>
       <!-- CARDS - END -->
-
+  <script src="../js/script.js" defer></script>
 <?php
 require_once "footer.php";
 ?>

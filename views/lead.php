@@ -74,6 +74,7 @@
             </div>
           </div>
         </section>
+          <script type="text/javascript" src="../js/cnpj.js" defer></script>
       </div>
       <!-- FICHA - END -->
 

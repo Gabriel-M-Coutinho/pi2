@@ -4,7 +4,7 @@ async function fetchData(cnpj) {
     try {
         const response = await fetch(URL); 
         if (response.ok) {
-            const data = await response.json(); 
+            const data = await response.json();     
             return data; // Retorna os dados
         } else {
             throw new Error('Não foi possível carregar os dados');

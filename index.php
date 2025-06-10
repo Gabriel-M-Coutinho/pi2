@@ -7,8 +7,13 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $routes = [
     '/' => function () {
-        require_once 'views/home.php';
+        if($_SESSION){
+            require_once 'views/home.php';
         exit;
+        }
+        require_once 'views/login_form.php';
+        exit;
+       
     },
 
     '/about' => function () {
