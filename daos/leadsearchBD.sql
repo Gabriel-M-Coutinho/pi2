@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS LeadsSearch CHAR SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE LeadsSearch;
+CREATE DATABASE IF NOT EXISTS leadsearch CHAR SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE leadsearch;
 
 CREATE TABLE IF NOT EXISTS partner_qualifications (
 	id_partner_qualification BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
