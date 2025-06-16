@@ -63,13 +63,28 @@
         </div>
         <!-- links -->
         <div id="links" class="flex md:gap-16 gap-6">
-          <a name="inicio" href="/" class="md:block hidden">Inicio</a>
+          <a name="inicio" href="/" class="md:block hidden">Ínicio</a>
           <a name="devs" href="/devs">Devs</a>
           <a name="sobre" href="/support">Sobre</a>
         </div>
         <!-- login -->
-        <div id="user">
-          <a name="login" href="/logout">SAIR</a>
-        </div>
+         <?php
+         if($_SESSION)
+         {
+          echo '
+          <div id="user">
+            <a name="login" href="/logout">SAIR</a>
+          </div>         
+          ';
+         }
+         else
+         {
+          echo '
+          <div id="user">
+            <a name="login" href="/login">ENTRAR</a>
+          </div>
+          ';
+         }
+         ?>
       </nav>
       <!-- NAV - END -->

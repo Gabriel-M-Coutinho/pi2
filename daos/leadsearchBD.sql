@@ -8,10 +8,12 @@ CREATE TABLE IF NOT EXISTS partner_qualifications (
 
 CREATE TABLE IF NOT EXISTS cnaes (
     id_cnae BIGINT UNSIGNED PRIMARY KEY,
+    id_cnae BIGINT UNSIGNED PRIMARY KEY,
     description_cnae TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS countries (
+	id_country BIGINT UNSIGNED PRIMARY KEY,
 	id_country BIGINT UNSIGNED PRIMARY KEY,
     description_country VARCHAR(70) NOT NULL
 );
@@ -27,6 +29,7 @@ CREATE TABLE IF NOT EXISTS registration_status_reasons (
 );
 
 CREATE TABLE IF NOT EXISTS legal_natures (
+	id_legal_nature BIGINT UNSIGNED PRIMARY KEY,
 	id_legal_nature BIGINT UNSIGNED PRIMARY KEY,
     description_legal_nature VARCHAR(70) NOT NULL
 );
@@ -89,7 +92,7 @@ CREATE TABLE IF NOT EXISTS companies (
 CREATE TABLE IF NOT EXISTS establishments (
 	id_establishment BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     cnae_id INT UNSIGNED,
-    registration_sr_id BIGINT UNSIGNED,
+    municipality_id BIGINT UNSIGNED,
     country_id BIGINT UNSIGNED,
     municipality_id BIGINT UNSIGNED,
     base_cnpj_company VARCHAR(20) UNSIGNED,
@@ -98,6 +101,7 @@ CREATE TABLE IF NOT EXISTS establishments (
     dv_cnpj_establishment VARCHAR(5),
     headquarters_branch_establishment ENUM('MATRIZ', 'FILIAL'),
     trade_name_establishment VARCHAR(255),
+    registration_status_establishment ENUM('NULA', 'ATIVA', 'SUSPENSA', 'INAPTA', 'BAIXADA'),
     registration_status_establishment ENUM('NULA', 'ATIVA', 'SUSPENSA', 'INAPTA', 'BAIXADA'),
     registration_status_date_establishment DATE,
     foreign_city_name_establishment VARCHAR(100),
@@ -120,7 +124,7 @@ CREATE TABLE IF NOT EXISTS establishments (
     special_situation_date_establishment DATE,
     
     FOREIGN KEY (cnae_id) REFERENCES cnaes(id_cnae),
-    FOREIGN KEY (registration_sr_id) REFERENCES registration_status_reasons(id_registration_sr),
+    FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
     FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)

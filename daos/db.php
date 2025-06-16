@@ -6,9 +6,9 @@ abstract class Database
 
     public function __construct()
     {
-        $host = "db"; 
-        $user = "gabriel";
-        $password = "123123w"; 
+        $host = "localhost";  //db
+        $user = "root"; //gabriel
+        $password = ""; //123123w
         $databaseName = "leadsearch";
 
         try {
@@ -28,7 +28,8 @@ abstract class Database
 
     private function createTables()
     {
-        $sql = file_get_contents("leadsearchBD.sql");
+        $sql = file_get_contents("./daos/leadsearchBD.sql");
+        echo $sql;
         $this->connection->exec($sql);
     }
 }

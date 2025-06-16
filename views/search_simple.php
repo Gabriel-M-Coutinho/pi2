@@ -27,33 +27,53 @@
         </div>
 
         <h1 class="text-center -mt-10 mb-3">
-          Potencialize suas vendas com leads qualificados
+          Insira o CNPJ no campo abaixo
         </h1>
-        <div>
-        <a href="/search_simple">
-        <button
+
+        <form id="form-pesquisa" class="max-w-[70%] w-full">
+          <label
+            for="default-search"
+            name="sr-only-pesquisa"
+            id="pesquisa"
+            class="mb-2 text-sm font-medium sr-only"
+            >Search</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 -mt-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="area-pesquisa"
+              class="block w-full p-4 ps-12 text-sm rounded-lg h-12"
+              placeholder="Procurar pelo CNPJ..."
+              requireds
+            />
+            <button
               type="submit"
               id="botao-principal"
-              class="center-2 px-4 py-1.5 font-semibold"
+              class="absolute end-2 bottom-2.5 rounded-lg text-sm px-4 py-1.5 font-semibold"
             >
-              Pesquisa por CNPJ
+              Buscar
             </button>
-        </a>
-        <a href="/search_advanced">
-        <button
-              type="submit"
-              id="botao-principal"
-              class="center-2 px-4 py-1.5 font-semibold"
-            >
-              Pesquisa Avançada
-            </button>
-        </a>
-        </div>
-        <a
-          href="/about"
-          class="hover:underline opacity-50 hover:opacity-100 -mt-3"
-          >O que é um lead?
-        </a>
+          </div>
+        </form>
       </section>
       <!-- HERO - END -->
 
