@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "var(--primary-color)",
-              secondary: "var(--secondary-color)",
-              accent: "var(--accent-color)",
-              text: "var(--text-color)",
-            },
-          },
-        },
-      };
-    </script>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>LeadSearch | Cadastro</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <!-- GOOGLE FONTS - IMPORTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- FONT: Jost -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<?php
+require_once 'header.php';
+?>
 
   <body onload="hideField()">
     <main>

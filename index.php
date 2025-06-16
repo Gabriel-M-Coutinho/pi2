@@ -6,14 +6,24 @@ require_once 'controllers/user.controller.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $routes = [
+
     '/' => function () {
-        if($_SESSION){
-            require_once 'views/home.php';
+        require_once 'views/home.php';
         exit;
+    },
+
+    '/search_simple' => function () {
+        require_once 'views/search_simple.php';
+        exit;
+    },
+
+    '/search_advanced' => function () {
+        if($_SESSION){
+            require_once 'views/search_advanced.php';
+            exit;
         }
         require_once 'views/login_form.php';
         exit;
-       
     },
 
     '/about' => function () {
@@ -38,6 +48,7 @@ $routes = [
 
     '/reset' => function () {
         require_once 'views/reset.php';
+        exit;
     },
 
     '/login' => function () {
