@@ -26,6 +26,11 @@ $routes = [
         exit;
     },
 
+    '/user' => function () {
+        require_once 'views/user.php';
+        exit;
+    },
+
     '/about' => function () {
         require_once 'views/about.php';
         exit;

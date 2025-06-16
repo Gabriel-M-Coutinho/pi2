@@ -63,13 +63,21 @@
         </div>
         <!-- links -->
         <div id="links" class="flex md:gap-16 gap-6">
-          <a name="inicio" href="/" class="md:block hidden">Ínicio</a>
+          <a name="inicio" href="/" class="md:block hidden">Início</a>
           <a name="devs" href="/devs">Devs</a>
           <a name="sobre" href="/support">Sobre</a>
+          <?php
+          if($_SESSION)
+          {
+            echo '
+            <a name="user" href="/user">Conta</a>
+            ';
+          }
+          ?>
         </div>
         <!-- login -->
          <?php
-         if($_SESSION)
+         if($_SESSION) // Warning na página lead.php
          {
           echo '
           <div id="user">
