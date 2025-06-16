@@ -8,12 +8,10 @@ CREATE TABLE IF NOT EXISTS partner_qualifications (
 
 CREATE TABLE IF NOT EXISTS cnaes (
     id_cnae BIGINT UNSIGNED PRIMARY KEY,
-    id_cnae BIGINT UNSIGNED PRIMARY KEY,
     description_cnae TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS countries (
-	id_country BIGINT UNSIGNED PRIMARY KEY,
 	id_country BIGINT UNSIGNED PRIMARY KEY,
     description_country VARCHAR(70) NOT NULL
 );
@@ -29,7 +27,6 @@ CREATE TABLE IF NOT EXISTS registration_status_reasons (
 );
 
 CREATE TABLE IF NOT EXISTS legal_natures (
-	id_legal_nature BIGINT UNSIGNED PRIMARY KEY,
 	id_legal_nature BIGINT UNSIGNED PRIMARY KEY,
     description_legal_nature VARCHAR(70) NOT NULL
 );
@@ -74,34 +71,30 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 CREATE TABLE IF NOT EXISTS companies (
-    base_cnpj_company VARCHAR(20) UNSIGNED PRIMARY KEY,
+    base_cnpj_company VARCHAR(20) PRIMARY KEY,
     legal_nature_id BIGINT UNSIGNED,
-    qualification_partner_id BIGINT UNSIGNED,
+    partner_qualification_id BIGINT UNSIGNED,
     
     legal_name_company VARCHAR(255),
     social_capital_company FLOAT,
     size_company ENUM("NÃO INFORMADO", "MICRO EMPRESA", "EMPRESA DE PEQUENO PORTE", "DEMAIS"),
     federative_entity_company VARCHAR(100),
 
-    INDEX idx_base_cnpj_company(base_cnpj_company),
-
-    FOREIGN KEY (qualification_partner_id) REFERENCES partner_qualifications(id_qualification_partner),
+    FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
     FOREIGN KEY (legal_nature_id) REFERENCES legal_natures(id_legal_nature)
 );
 
 CREATE TABLE IF NOT EXISTS establishments (
 	id_establishment BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    cnae_id INT UNSIGNED,
+    cnae_id BIGINT UNSIGNED,
     municipality_id BIGINT UNSIGNED,
     country_id BIGINT UNSIGNED,
-    municipality_id BIGINT UNSIGNED,
-    base_cnpj_company VARCHAR(20) UNSIGNED,
+    base_cnpj_company VARCHAR(20),
 
     order_cnpj_establishment VARCHAR(10),
     dv_cnpj_establishment VARCHAR(5),
     headquarters_branch_establishment ENUM('MATRIZ', 'FILIAL'),
     trade_name_establishment VARCHAR(255),
-    registration_status_establishment ENUM('NULA', 'ATIVA', 'SUSPENSA', 'INAPTA', 'BAIXADA'),
     registration_status_establishment ENUM('NULA', 'ATIVA', 'SUSPENSA', 'INAPTA', 'BAIXADA'),
     registration_status_date_establishment DATE,
     foreign_city_name_establishment VARCHAR(100),
@@ -124,7 +117,6 @@ CREATE TABLE IF NOT EXISTS establishments (
     special_situation_date_establishment DATE,
     
     FOREIGN KEY (cnae_id) REFERENCES cnaes(id_cnae),
-    FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
     FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)
@@ -140,7 +132,7 @@ CREATE TABLE IF NOT EXISTS establishments_secondary_cnaes (
 
 CREATE TABLE IF NOT EXISTS companies_partners (
 	id_company_partner BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    base_cnpj_company VARCHAR(20) UNSIGNED,
+    base_cnpj_company VARCHAR(20),
     partner_id BIGINT UNSIGNED,
     FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company),
     FOREIGN KEY (partner_id) REFERENCES partners(id_partner)
