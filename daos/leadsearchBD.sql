@@ -7,22 +7,22 @@ CREATE TABLE IF NOT EXISTS partner_qualifications (
 );
 
 CREATE TABLE IF NOT EXISTS cnaes (
-    id_cnae INT UNSIGNED PRIMARY KEY,
+    id_cnae BIGINT UNSIGNED PRIMARY KEY,
     description_cnae TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS countries (
-	id_country BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_country BIGINT UNSIGNED PRIMARY KEY,
     description_country VARCHAR(70) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS registration_status_reasons (
-	id_registration_sr BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    description_registration_sr VARCHAR(70) NOT NULL
+CREATE TABLE IF NOT EXISTS municipalities (
+	id_municipality BIGINT UNSIGNED PRIMARY KEY,
+    description_municipality VARCHAR(70) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS legal_natures (
-	id_legal_nature BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_legal_nature BIGINT UNSIGNED PRIMARY KEY,
     description_legal_nature VARCHAR(70) NOT NULL
 );
 
@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS partners (
     legal_representative_partner VARCHAR(255),
     representative_name_partner VARCHAR(255),
     representative_qualification_partner VARCHAR(255),
-    age_group_partner INT,
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification)
 );
@@ -76,7 +75,7 @@ CREATE TABLE IF NOT EXISTS companies (
 CREATE TABLE IF NOT EXISTS establishments (
 	id_establishment BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     cnae_id INT UNSIGNED,
-    registration_sr_id BIGINT UNSIGNED,
+    municipality_id BIGINT UNSIGNED,
     country_id BIGINT UNSIGNED,
     company_id BIGINT UNSIGNED, 
 
@@ -84,7 +83,7 @@ CREATE TABLE IF NOT EXISTS establishments (
     dv_cnpj_establishment VARCHAR(5),
     headquarters_branch_establishment INT,
     trade_name_establishment VARCHAR(255),
-    registration_status_establishment INT,
+    registration_status_establishment ENUM('NULA', 'ATIVA', 'SUSPENSA', 'INAPTA', 'BAIXADA'),
     registration_status_date_establishment DATE,
     foreign_city_name_establishment VARCHAR(100),
     activity_start_date_establishment DATE,
@@ -95,7 +94,6 @@ CREATE TABLE IF NOT EXISTS establishments (
     neighborhood_establishment VARCHAR(100),
     zip_code_establishment VARCHAR(20),
     state_establishment VARCHAR(2),
-    municipality_establishment INT,
     ddd1_establishment VARCHAR(5),
     phone1_establishment VARCHAR(20),
     ddd2_establishment VARCHAR(5),
@@ -107,7 +105,7 @@ CREATE TABLE IF NOT EXISTS establishments (
     special_situation_date_establishment DATE,
     
     FOREIGN KEY (cnae_id) REFERENCES cnaes(id_cnae),
-    FOREIGN KEY (registration_sr_id) REFERENCES registration_status_reasons(id_registration_sr),
+    FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (company_id) REFERENCES companies(id_company)
 );
