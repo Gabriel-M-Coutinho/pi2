@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS legal_natures (
 
 CREATE TABLE IF NOT EXISTS partners (
 	id_partner BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    base_cnpj_company VARCHAR(20),
     country_id BIGINT UNSIGNED,
     partner_qualification_id BIGINT UNSIGNED,
     representative_qualification_id BIGINT UNSIGNED,
@@ -45,11 +46,10 @@ CREATE TABLE IF NOT EXISTS partners (
     representative_name_partner VARCHAR(255),
     age_group_partner TINYINT,
 
-    INDEX idx_name_cpfcnpj_partner(name_partner, cpf_cnpj_partner),
-
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
-    FOREIGN KEY (representative_qualification_id) REFERENCES partner_qualifications(id_partner_qualification)
+    FOREIGN KEY (representative_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
+    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)
 );
 
 CREATE TABLE IF NOT EXISTS users (
@@ -128,14 +128,6 @@ CREATE TABLE IF NOT EXISTS establishments_secondary_cnaes (
     cnae_id BIGINT UNSIGNED,
     FOREIGN KEY (establishment_id) REFERENCES establishments(id_establishment),
     FOREIGN KEY (cnae_id) REFERENCES cnaes(id_cnae)
-);
-
-CREATE TABLE IF NOT EXISTS companies_partners (
-	id_company_partner BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    base_cnpj_company VARCHAR(20),
-    partner_id BIGINT UNSIGNED,
-    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company),
-    FOREIGN KEY (partner_id) REFERENCES partners(id_partner)
 );
 
 CREATE TABLE IF NOT EXISTS establishments_orders (
