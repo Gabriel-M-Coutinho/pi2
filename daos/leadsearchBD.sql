@@ -31,27 +31,6 @@ CREATE TABLE IF NOT EXISTS legal_natures (
     description_legal_nature VARCHAR(70) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS partners (
-	id_partner BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    base_cnpj_company VARCHAR(20),
-    country_id BIGINT UNSIGNED,
-    partner_qualification_id BIGINT UNSIGNED,
-    representative_qualification_id BIGINT UNSIGNED,
-
-    partner_type_identifier ENUM("PESSOA JURÍDICA", "PESSOA FÍSICA", "ESTRANGEIRO"),
-    name_partner VARCHAR(255),
-    cpf_cnpj_partner VARCHAR(20),
-    entry_date_partner DATE,
-    legal_representative_partner VARCHAR(255),
-    representative_name_partner VARCHAR(255),
-    age_group_partner TINYINT,
-
-    FOREIGN KEY (country_id) REFERENCES countries(id_country),
-    FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
-    FOREIGN KEY (representative_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
-    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)
-);
-
 CREATE TABLE IF NOT EXISTS users (
 	id_user BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	email_user VARCHAR(100) UNIQUE,
@@ -82,6 +61,27 @@ CREATE TABLE IF NOT EXISTS companies (
 
     FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
     FOREIGN KEY (legal_nature_id) REFERENCES legal_natures(id_legal_nature)
+);
+
+CREATE TABLE IF NOT EXISTS partners (
+	id_partner BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    base_cnpj_company VARCHAR(20),
+    country_id BIGINT UNSIGNED,
+    partner_qualification_id BIGINT UNSIGNED,
+    representative_qualification_id BIGINT UNSIGNED,
+
+    partner_type_identifier ENUM("PESSOA JURÍDICA", "PESSOA FÍSICA", "ESTRANGEIRO"),
+    name_partner VARCHAR(255),
+    cpf_cnpj_partner VARCHAR(20),
+    entry_date_partner DATE,
+    legal_representative_partner VARCHAR(255),
+    representative_name_partner VARCHAR(255),
+    age_group_partner TINYINT,
+
+    FOREIGN KEY (country_id) REFERENCES countries(id_country),
+    FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
+    FOREIGN KEY (representative_qualification_id) REFERENCES partner_qualifications(id_partner_qualification),
+    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)
 );
 
 CREATE TABLE IF NOT EXISTS establishments (
