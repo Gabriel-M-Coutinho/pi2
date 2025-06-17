@@ -1,3 +1,10 @@
+<?php
+  if(!isset($_SESSION))
+  {
+    session_start();
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +47,7 @@
         class="flex justify-between items-center h-16 w-full sm:p-6 p-2 sticky z-50 top-0 left-0 bg-secondary text-text"
       >
         <!-- logo -->
-        <div id="logo">
+        <div id="logo" class="md:gap-4">
           <a name="logo" href="/">
             <svg
               width="60"
@@ -64,23 +71,39 @@
         <!-- links -->
         <div id="links" class="flex md:gap-16 gap-6">
           <a name="inicio" href="/" class="md:block hidden">Início</a>
+          <a name="sobre" href="/about">Sobre</a>
           <a name="devs" href="/devs">Devs</a>
-          <a name="sobre" href="/support">Sobre</a>
-          <?php
-          if(isset($_SESSION['user']))
-          {
-            echo '
-            <a name="user" href="/user">Conta</a>
-            ';
-          }
-          ?>
         </div>
         <!-- login -->
          <?php
          if(isset($_SESSION['user']))
          {
           echo '
-          <div id="user">
+          <div id="user" class="flex md:gap-4">
+            <a name="user" href="/user">
+              <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              >
+              <path
+              d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              />
+              <path
+              d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              />
+              </svg>
+            </a>
             <a name="login" href="/logout">SAIR</a>
           </div>         
           ';
@@ -94,5 +117,8 @@
           ';
          }
          ?>
+
+          <?php
+          ?>
       </nav>
       <!-- NAV - END -->

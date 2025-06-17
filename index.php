@@ -18,11 +18,12 @@ $routes = [
     },
 
     '/search_advanced' => function () {
-        if($_SESSION){
+        if(isset($_SESSION['user'])){
             require_once 'views/search_advanced.php';
             exit;
         }
-        require_once 'views/login_form.php';
+        $controller = new UserController();
+        $controller->login(); 
         exit;
     },
 
