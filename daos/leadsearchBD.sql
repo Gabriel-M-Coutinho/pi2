@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS partners (
 CREATE TABLE IF NOT EXISTS establishments (
 	id_establishment BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     cnae_id BIGINT UNSIGNED,
+    registration_sr_id BIGINT UNSIGNED,
     municipality_id BIGINT UNSIGNED,
     country_id BIGINT UNSIGNED,
     base_cnpj_company VARCHAR(20),
@@ -119,7 +120,8 @@ CREATE TABLE IF NOT EXISTS establishments (
     FOREIGN KEY (cnae_id) REFERENCES cnaes(id_cnae),
     FOREIGN KEY (country_id) REFERENCES countries(id_country),
     FOREIGN KEY (municipality_id) REFERENCES municipalities(id_municipality),
-    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company)
+    FOREIGN KEY (base_cnpj_company) REFERENCES companies(base_cnpj_company),
+    FOREIGN KEY (registration_sr_id) REFERENCES registration_status_reasons(id_registration_sr)
 );
 
 CREATE TABLE IF NOT EXISTS establishments_secondary_cnaes (
