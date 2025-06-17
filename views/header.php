@@ -67,7 +67,7 @@
           <a name="devs" href="/devs">Devs</a>
           <a name="sobre" href="/support">Sobre</a>
           <?php
-          if($_SESSION)
+          if(isset($_SESSION['user']))
           {
             echo '
             <a name="user" href="/user">Conta</a>
@@ -77,7 +77,7 @@
         </div>
         <!-- login -->
          <?php
-         if($_SESSION) // Warning na página lead.php
+         if(isset($_SESSION['user']))
          {
           echo '
           <div id="user">

@@ -13,7 +13,7 @@ require_once 'header.php';
           class="flex flex-col justify-center items-center h-full md:w-1/2 gap-8"
         >
           <h2 class="font-bold">Criar uma conta</h2>
-          <form method="POST" id="form-login" class="flex flex-col justify-center items-center w-full gap-6">
+          <form method="POST" id="form-register" class="flex flex-col justify-center items-center w-full gap-6">
             <div class="max-w-[80%] w-full flex flex-col">
               <label for="email" class="">Email</label>
               <input type="email" name="email" id="email" class="form-imput" />
