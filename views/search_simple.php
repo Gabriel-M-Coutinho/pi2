@@ -61,6 +61,7 @@
             <input
               type="search"
               id="area-pesquisa"
+              name="cnpj"
               class="block w-full p-4 ps-12 text-sm rounded-lg h-12"
               placeholder="Procurar pelo CNPJ..."
               requireds
