@@ -26,10 +26,16 @@ require_once 'header.php';
               <label for="password_confirm" class="">Confirmar senha</label>
               <input type="password" name="password_confirm" id="password_confirm" class="form_imput" />
             </div>
-            <div class="max-w-[80%] w-full flex">
-              <label for="type_user" class="">Selecione o tipo de pessoa:</label>
-                PF<input type="radio" name="type_user" value="user_common" class="form-imput" onchange="selectThis()">
-                PJ<input type="radio" name="type_user" value="user_company" class="form-imput" onchange="selectThis()">
+            <div class="max-w-[80%] w-full flex user_type">
+              <label for="user_type">Selecione o tipo de pessoa:</label>
+                <label class="flex items-center gap-1">
+                  <input type="radio" name="user_type" value="user_common" class="form-imput" onchange="selectThis()">
+                  PF
+                </label>
+                <label class="flex items-center gap-1">
+                  <input type="radio" name="user_type" value="user_company" class="form-imput" onchange="selectThis()">
+                  PJ
+                </label>
             </div>
             <div id="selectPF" class="max-w-[80%] w-full">
               <div class="flex flex-col">

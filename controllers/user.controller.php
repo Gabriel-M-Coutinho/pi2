@@ -33,7 +33,6 @@ class UserController
         }else{
             require_once 'views/login_form.php';
         }
-        
     }
 
    
@@ -43,9 +42,9 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $password_confirm = $_POST['password_confirm'];
-            $type_user = $_POST['type_user'];
+            $user_type = $_POST['user_type'];
 
-            switch($type_user)
+            switch($user_type)
             {
                 case 'user_common':
                     $user_type = "PF";
@@ -60,7 +59,7 @@ class UserController
                 break;
             }
 
-            if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($type_user))
+            if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($user_type))
             {
                 echo "Preencha todos os campos.";
                 return;
@@ -80,6 +79,48 @@ class UserController
             header('Location: /login');
         }else{
             require_once 'views/register_form.php';
+        }
+    }
+
+
+    public function update()
+    {
+        if ($_POST && $_POST['action'] === 'edit') {
+            $id = $_POST['id'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $password_confirm = $_POST['password_confirm'];
+            $user_type = $_POST['user_type'];
+
+            if ($user_type == 'user_common') {
+                $user_type = 'PF';
+                $name = $_POST['name'];
+                $document = $_POST['cpf'];
+            } else {
+                $user_type = 'PJ';
+                $name = $_POST['corporate_name'];
+                $document = $_POST['cnpj'];
+            }
+
+            $changePassword = false;
+
+            $user = new User($email, "", $name, $document, $user_type);
+            $user->setIdUser($id);
+
+            if (!empty($password) || !empty($password_confirm)) {
+                if ($password !== $password_confirm) {
+                    echo "As senhas não coincidem.";
+                    return;
+                }
+                $user->setPassword($password);
+                $changePassword = true;
+            }
+
+            $userDAO = new UserDAO();
+            $userDAO->update($user, $changePassword);
+
+            header('Location: /');
+            exit;
         }
     }
 }

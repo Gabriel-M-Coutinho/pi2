@@ -6,7 +6,7 @@ function hideField()
 
 function selectThis()
 {
-    const typeSelect = document.querySelector('input[name="type_user"]:checked').value;
+    const typeSelect = document.querySelector('input[name="user_type"]:checked').value;
     if(!typeSelect)
     {
         hideField();

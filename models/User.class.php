@@ -50,6 +50,11 @@ class User {
 
 
     // ============ SETs ============
+    public function setIdUser($id_user)
+    {
+        $this->id_user = $id_user;
+    }
+
     public function setEmail($email)
     {
         $this->email = $email;
