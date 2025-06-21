@@ -29,7 +29,7 @@ unset($_SESSION['error_nulls']);
             <div class="max-w-[80%] w-full flex flex-col">
               <label for="password_confirm" class="">Confirmar senha</label>
               <input type="password" name="password_confirm" id="password_confirm" class="form_imput" />
-              <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $erro : '';?></p>
+              <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
             </div>
             <div class="max-w-[80%] w-full flex user_type">
               <label for="user_type">Selecione o tipo de pessoa:</label>
