@@ -45,19 +45,22 @@ class UserController
             $password_confirm = $_POST['password_confirm'];
             $user_type = $_POST['user_type'];
 
-            switch($user_type)
+            if($user_type)
             {
-                case 'user_common':
-                    $user_type = "PF";
-                    $name = $_POST['name'];  
-                    $document = $_POST['cpf'];
-                break;
+                switch($user_type)
+                {
+                    case 'user_common':
+                        $user_type = "PF";
+                        $name = $_POST['name'];  
+                        $document = $_POST['cpf'];
+                    break;
 
-                case 'user_company':
-                    $user_type = "PJ";
-                    $name = $_POST['corporate_name'];  
-                    $document = $_POST['cnpj'];
-                break;
+                    case 'user_company':
+                        $user_type = "PJ";
+                        $name = $_POST['corporate_name'];  
+                        $document = $_POST['cnpj'];
+                    break;
+                }
             }
 
             if (empty($email) || empty($password) || empty($password_confirm) || empty($name) || empty($document) || empty($user_type))
