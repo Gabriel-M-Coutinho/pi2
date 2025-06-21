@@ -34,7 +34,7 @@ unset($_SESSION['error_nulls']);
             <div class="max-w-[80%] w-full flex user_type">
               <label for="user_type">Selecione o tipo de pessoa:</label>
                 <label class="flex items-center gap-1">
-                  <input type="radio" name="user_type" value="user_common" class="form-imput" onchange="selectThis()">
+                  <input type="radio" name="user_type" value="user_common" class="form-imput" checked onchange="selectThis()">
                   PF
                 </label>
                 <label class="flex items-center gap-1">

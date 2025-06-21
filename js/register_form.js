@@ -1,6 +1,6 @@
 function hideField()
 {
-    document.getElementById('selectPF').style.display = 'none';
+    document.getElementById('selectPF').style.display = 'block';
     document.getElementById('selectPJ').style.display = 'none';
 }
 
