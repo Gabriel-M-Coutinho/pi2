@@ -2,11 +2,11 @@
 :root {
     --text-color: rgb(210, 212, 214);
     --accent-color: rgb(116, 128, 255);
-    --primary-color: rgb(29, 35, 42);
+    --primary-color: rgb(28, 34, 41);
     --secondary-color: rgb(50, 60, 74);
     --opacity-primary-color: rgba(29, 35, 42, 0.85);
   }
-  
+
   /* PADRÕES */
   * {
     box-sizing: border-box;
@@ -152,7 +152,21 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
-    font-size: large;
+    font-size: 15px;
+  }
+
+  #botao-red {
+    background-color: rgb(177, 32, 32);
+    color: white;
+    mix-blend-mode: normal;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  #botao-red:hover {
+    background-color: rgb(77, 15, 15);
   }
   
   #botao-principal:hover,
@@ -167,7 +181,7 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
-    font-size: large;
+    font-size: 15px;
   }
   
   #card {
@@ -185,4 +199,47 @@
     margin: 0px -10px;
     z-index: 1;
   }
+  
+  .icon_user {
+    position: relative;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+    min-width: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 10;
+  }
+
+  .icon_user:hover .submenu {
+    display: block;
+  }
+
+  .submenu a {
+    color: var(--text-color);
+    background-color: #1b2127;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .submenu a:hover {
+    background-color: #232b33;
+    color: var(--text-color);
+  }
+
+  .submenu .back:hover {
+    background-color: rgb(77, 15, 15);
+    color: var(--text-color);
+  }
+
+  .user_type {
+    justify-content: space-between;
+  }
+
   

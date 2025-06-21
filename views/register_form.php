@@ -1,5 +1,8 @@
 <?php
 require_once 'header.php';
+
+$error_nulls = $_SESSION['error_nulls'] ?? '';
+unset($_SESSION['error_nulls']);
 ?>
 
   <body onload="hideField()">
@@ -21,15 +24,23 @@ require_once 'header.php';
             <div class="max-w-[80%] w-full flex flex-col">
               <label for="password" class="">Senha</label>
               <input type="password" name="password" id="password" class="form-imput" />
+              <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
             </div>
             <div class="max-w-[80%] w-full flex flex-col">
               <label for="password_confirm" class="">Confirmar senha</label>
               <input type="password" name="password_confirm" id="password_confirm" class="form_imput" />
+              <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
             </div>
-            <div class="max-w-[80%] w-full flex">
-              <label for="type_user" class="">Selecione o tipo de pessoa:</label>
-                PF<input type="radio" name="type_user" value="user_common" class="form-imput" onchange="selectThis()">
-                PJ<input type="radio" name="type_user" value="user_company" class="form-imput" onchange="selectThis()">
+            <div class="max-w-[80%] w-full flex user_type">
+              <label for="user_type">Selecione o tipo de pessoa:</label>
+                <label class="flex items-center gap-1">
+                  <input type="radio" name="user_type" value="user_common" class="form-imput" checked onchange="selectThis()">
+                  PF
+                </label>
+                <label class="flex items-center gap-1">
+                  <input type="radio" name="user_type" value="user_company" class="form-imput" onchange="selectThis()">
+                  PJ
+                </label>
             </div>
             <div id="selectPF" class="max-w-[80%] w-full">
               <div class="flex flex-col">
@@ -56,6 +67,7 @@ require_once 'header.php';
               Já tem uma conta?
               <a href="/login" class="font-bold hover:underline">Entrar</a>
             </p>
+            <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error_nulls) ? $error_nulls : '';?></p>
           </form>
         </div>
         <!-- FORM - END -->

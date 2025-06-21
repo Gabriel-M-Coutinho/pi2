@@ -1,12 +1,12 @@
 function hideField()
 {
-    document.getElementById('selectPF').style.display = 'none';
+    document.getElementById('selectPF').style.display = 'block';
     document.getElementById('selectPJ').style.display = 'none';
 }
 
 function selectThis()
 {
-    const typeSelect = document.querySelector('input[name="type_user"]:checked').value;
+    const typeSelect = document.querySelector('input[name="user_type"]:checked').value;
     if(!typeSelect)
     {
         hideField();

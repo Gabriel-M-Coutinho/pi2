@@ -3,6 +3,8 @@
   {
     session_start();
   }
+  $error = $_SESSION['error'] ?? '';
+  unset($_SESSION['error']);
 ?>
 
 <!DOCTYPE html>
@@ -79,8 +81,8 @@
          if(isset($_SESSION['user']))
          {
           echo '
-          <div id="user" class="flex md:gap-4">
-            <a name="user" href="/user">
+          <div id="user" class="flex md:gap-4 icon_user">
+            <a name="user">
               <svg
               width="24"
               height="24"
@@ -104,7 +106,10 @@
               />
               </svg>
             </a>
-            <a name="login" href="/logout">SAIR</a>
+            <div class="submenu">
+              <a name="login" href="/user">Conta</a>
+              <a name="login" class="back" href="/logout">Sair</a>
+            </div>
           </div>         
           ';
          }
@@ -112,7 +117,7 @@
          {
           echo '
           <div id="user">
-            <a name="login" href="/login">ENTRAR</a>
+            <a name="login" href="/login">Entrar</a>
           </div>
           ';
          }

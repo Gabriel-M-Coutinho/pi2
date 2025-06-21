@@ -27,11 +27,6 @@ $routes = [
         exit;
     },
 
-    '/user' => function () {
-        require_once 'views/user.php';
-        exit;
-    },
-
     '/about' => function () {
         require_once 'views/about.php';
         exit;
@@ -73,6 +68,25 @@ $routes = [
         header('Location: /login');
         exit;
     },
+
+    '/user' => function () {
+        $controller = new UserController();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'edit') 
+        {
+            $controller->update();
+        }
+        else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete')
+        {
+            $controller->delete();
+        }
+        else
+        {
+            require_once 'views/user.php';
+        }
+        exit;
+    },
+
 ];
 
 if (isset($routes[$uri])) {
