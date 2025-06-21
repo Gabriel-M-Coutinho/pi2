@@ -14,7 +14,7 @@ FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_part
 ADD CONSTRAINT fk_companies_legal_nature 
 FOREIGN KEY (legal_nature_id) REFERENCES legal_natures(id_legal_nature);
 
----
+
 
 INSERT INTO companies (base_cnpj_company, legal_nature_id, partner_qualification_id, legal_name_company, social_capital_company, size_company, federative_entity_company)
 VALUES ('INDEFINIDO', 0, 0, NULL, NULL, 'NÃO INFORMADO', NULL);
@@ -49,7 +49,7 @@ FOREIGN KEY (partner_qualification_id) REFERENCES partner_qualifications(id_part
 ADD CONSTRAINT fk_partners_representative_qualification 
 FOREIGN KEY (representative_qualification_id) REFERENCES partner_qualifications(id_partner_qualification);
 
----
+
 
 UPDATE establishments
 SET cnae_id = 8888888

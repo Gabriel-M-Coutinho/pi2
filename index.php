@@ -76,7 +76,11 @@ $routes = [
         {
             $controller->update();
         }
-        else // if pro delete
+        else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete')
+        {
+            $controller->delete();
+        }
+        else
         {
             require_once 'views/user.php';
         }

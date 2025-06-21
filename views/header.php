@@ -3,6 +3,8 @@
   {
     session_start();
   }
+  $error = $_SESSION['error'] ?? '';
+  unset($_SESSION['error']);
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +108,7 @@
             </a>
             <div class="submenu">
               <a name="login" href="/user">Conta</a>
-              <a name="login" href="/logout" class="">Sair</a>
+              <a name="login" class="back" href="/logout">Sair</a>
             </div>
           </div>         
           ';

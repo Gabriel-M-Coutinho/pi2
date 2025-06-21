@@ -85,5 +85,16 @@ class UserDAO extends Database
         return "User updated successfully!";
     }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM users WHERE id_user = ?";
+        $stmt = $this->connection->prepare($sql);
+
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return "User deleted successfully!";
+    }
+
 }
 ?>

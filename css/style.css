@@ -6,7 +6,7 @@
     --secondary-color: rgb(50, 60, 74);
     --opacity-primary-color: rgba(29, 35, 42, 0.85);
   }
-  
+
   /* PADRÕES */
   * {
     box-sizing: border-box;
@@ -166,7 +166,7 @@
   }
 
   #botao-red:hover {
-    background-color: rgb(108, 23, 23);;
+    background-color: rgb(77, 15, 15);
   }
   
   #botao-principal:hover,
@@ -230,6 +230,11 @@
 
   .submenu a:hover {
     background-color: #232b33;
+    color: var(--text-color);
+  }
+
+  .submenu .back:hover {
+    background-color: rgb(77, 15, 15);
     color: var(--text-color);
   }
 

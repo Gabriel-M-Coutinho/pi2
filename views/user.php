@@ -1,6 +1,7 @@
 <?php
 require_once 'header.php';
 require_once 'daos/user.dao.php';
+require_once 'controllers/user.controller.php';
 
 $userDAO = new UserDAO();
 $user = $userDAO->getUserById($_SESSION['user']['id']);
@@ -19,12 +20,14 @@ $user = $userDAO->getUserById($_SESSION['user']['id']);
         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
         <input type="password" name="password" id="password"
                class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"/>
+               <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
     </div>
 
     <div class="mb-5">
         <label for="password_confirm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar Senha</label>
         <input type="password" name="password_confirm" id="password_confirm"
                class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"/>
+               <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
     </div>
 
     <div class="max-w-[80%] w-full flex user_type mb-5 gap-2">

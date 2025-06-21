@@ -26,6 +26,7 @@ require_once 'header.php';
               <a href="/register" class="font-bold hover:underline">Cadastre-se</a>
             </p>
             <a href="/reset" class="font-bold hover:underline">Esqueci minha senha</a>
+            <p class="mt-2 text-xs text-red-600 dark:text-red-500"><?= isset($error) ? $error : '';?></p>
           </form>
         </div>
         <!-- FORM - END -->
