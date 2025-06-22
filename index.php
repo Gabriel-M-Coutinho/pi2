@@ -2,6 +2,7 @@
 session_start();
 
 require_once 'controllers/user.controller.php';
+require_once 'controllers/search_advanced.controller.php'; 
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -17,21 +18,22 @@ $routes = [
         exit;
     },
 
-    '/search_advanced' => function () {
-        if(isset($_SESSION['user'])){
-            require_once 'controllers/search_advanced.controller.php';
-            $controller = new SearchAdvancedController();
-            if($_POST){
-                $controller->searchDataBase();
-            }
-            $cnaes = $controller->cnaes();
-            require_once 'views/search_advanced.php';
-            exit;
-        }
-        $controller = new UserController();
-        $controller->login(); 
-        exit;
-    },
+    '/search_advanced' => function() {
+    $controller = new SearchAdvancedController();
+    
+
+    $cnaes = $controller->cnaes();
+    $municipios = $controller->municipios();
+    
+
+    $results = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $results = $controller->searchDataBase();
+    }
+
+    require_once 'views/search_advanced.php';
+},
 
     '/about' => function () {
         require_once 'views/about.php';

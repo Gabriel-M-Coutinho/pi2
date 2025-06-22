@@ -13,6 +13,11 @@ class SearchAdvancedDAO extends Database {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getMunicipios() {
+        $sqlCnaes = "SELECT id_municipality AS codigo, description_municipality AS descricao FROM municipalities;";
+        $stmt = $this->connection->query($sqlCnaes);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function searchDataBase(
         ?int $cnae_code = null, 
         ?int $municipality = null, 
@@ -20,7 +25,7 @@ class SearchAdvancedDAO extends Database {
         int $page = 0
     ) {
             
-        $limit = 100;
+        $limit = 10;
         $offset = $page * $limit;
 
         $sql = "SELECT
@@ -77,8 +82,7 @@ class SearchAdvancedDAO extends Database {
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
         
-        $stmt = $this->connection->prepare($sql);
-        
+
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -6,6 +6,10 @@
             $cnaes = new SearchAdvancedDAO();
             return $cnaes->getCnaes();
         }
+        public function municipios(){
+            $cnaes = new SearchAdvancedDAO();
+            return $cnaes->getMunicipios();
+        }
 
         public function searchDataBase() {
 
@@ -21,7 +25,7 @@
         $result = $search->searchDataBase($cnae_code, $municipality, $state, $page);
 
     
-        // pegar os resultados e colocar no front weverton
+            return $result;
         }
     }
 ?>
