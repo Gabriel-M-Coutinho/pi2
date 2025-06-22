@@ -19,6 +19,12 @@ $routes = [
 
     '/search_advanced' => function () {
         if(isset($_SESSION['user'])){
+            require_once 'controllers/search_advanced.controller.php';
+            $controller = new SearchAdvancedController();
+            if($_POST){
+                $controller->searchDataBase();
+            }
+            $cnaes = $controller->cnaes();
             require_once 'views/search_advanced.php';
             exit;
         }

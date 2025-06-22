@@ -20,7 +20,7 @@ abstract class Database
             );
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $this->createTables();
+            //$this->createTables();
         } catch (PDOException $e) {
             die("Connection or database creation error: " . $e->getMessage());
         }
