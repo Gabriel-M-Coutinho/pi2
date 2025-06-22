@@ -6,9 +6,22 @@
             $cnaes = new SearchAdvancedDAO();
             return $cnaes->getCnaes();
         }
-        public function searchDataBase(){
-            $search = new SearchAdvancedDAO();
-            $search->searchDataBase();
+
+        public function searchDataBase() {
+
+        $cnae_code = isset($_POST['cnae_code']) ? (int)$_POST['cnae_code'] : null;
+        $municipality = isset($_POST['municipality']) ? (int)$_POST['municipality'] : null;
+        $state = isset($_POST['state']) ? $_POST['state'] : null;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 0;
+
+
+        $search = new SearchAdvancedDAO();
+
+   
+        $result = $search->searchDataBase($cnae_code, $municipality, $state, $page);
+
+    
+        // pegar os resultados e colocar no front weverton
         }
     }
 ?>
