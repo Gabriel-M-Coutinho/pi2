@@ -18,18 +18,16 @@ $routes = [
         exit;
     },
 
-    '/search_advanced' => function() {
+  '/search_advanced' => function() {
     $controller = new SearchAdvancedController();
     
-
     $cnaes = $controller->cnaes();
     $municipios = $controller->municipios();
     
-
-    $results = [];
+    $searchResults = [];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $results = $controller->searchDataBase();
+        $searchResults = $controller->searchDataBase();
     }
 
     require_once 'views/search_advanced.php';

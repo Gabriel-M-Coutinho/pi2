@@ -1,83 +1,63 @@
-<?php
-  require_once "header.php";
-?>
+<?php require_once "header.php"; ?>
 
-      <!-- FICHA - START -->
-      <div
-        class="w-full h-full flex flex-col items-center bg-gradient-to-bl from-primary to-[#261c31]"
-      >
-        <section
-          id="sobre"
-          class="h-fit w-full max-w-[1200px] flex flex-col items-center justify-center text-center gap-4 mt-20 mb-20 px-4"
-        >
-          <h2 class="text-center -mt-10 mb-3">Confira os dados:</h2>
-
-          <!-- cards -->
-          <div class="flex md:flex-row flex-col gap-4 w-full">
-            <div
-              class="flex flex-col items-center justify-center gap-2 rounded-xl p-6 bg-secondary text-text w-full"
-            >
-              <!-- CNPJ -->
-              <span class="text-sm uppercase text-accent font-bold">cnpj</span>
-              <h1 class="mt-3 cnpj"></h1>
+<div id="lead-container" class="container mx-auto p-6">
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-6">Detalhes da Empresa</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Coluna 1 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Informações Básicas</h2>
+                <div class="space-y-3">
+                    <p><span class="font-medium">CNPJ:</span> <span id="cnpj">Carregando...</span></p>
+                    <p><span class="font-medium">Razão Social:</span> <span id="razao-social">Carregando...</span></p>
+                    <p><span class="font-medium">Nome Fantasia:</span> <span id="nome-fantasia">Carregando...</span></p>
+                    <p><span class="font-medium">Data de Abertura:</span> <span id="data-abertura">Carregando...</span></p>
+                    <p><span class="font-medium">Situação Cadastral:</span> <span id="situacao-cadastral">Carregando...</span></p>
+                    <p><span class="font-medium">Porte:</span> <span id="porte">Carregando...</span></p>
+                    <p><span class="font-medium">Natureza Jurídica:</span> <span id="natureza-juridica">Carregando...</span></p>
+                    <p><span class="font-medium">Capital Social:</span> <span id="capital-social">Carregando...</span></p>
+                </div>
+                
+                <h2 class="text-xl font-semibold mt-6 mb-4">Endereço</h2>
+                <p id="endereco">Carregando...</p>
+                
+                <h2 class="text-xl font-semibold mt-6 mb-4">Contato</h2>
+                <div class="space-y-3">
+                    <p><span class="font-medium">Telefone:</span> <span id="telefone">Carregando...</span></p>
+                    <p><span class="font-medium">Email:</span> <span id="email">Carregando...</span></p>
+                </div>
             </div>
-
-            <div
-              class="flex flex-col items-center justify-center gap-2 rounded-xl p-6 bg-secondary text-text w-full"
-            >
-              <!-- RAZAO -->
-              <span class="text-sm uppercase text-accent font-bold"
-                >razão social</span
-              >
-              <h1 class="mt-3 razao"></h1>
+            
+            <!-- Coluna 2 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Atividades Econômicas</h2>
+                <div class="space-y-3">
+                    <p><span class="font-medium">CNAE Principal:</span> <span id="cnae-principal">Carregando...</span></p>
+                    
+                    <div>
+                        <p class="font-medium mb-2">CNAEs Secundários:</p>
+                        <ul id="cnaes-secundarios" class="pl-4">
+                            <li>Carregando...</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2 class="text-xl font-semibold mt-6 mb-4">Simples Nacional</h2>
+                <div class="space-y-3">
+                    <p><span class="font-medium">Optante pelo Simples:</span> <span id="simples">Carregando...</span></p>
+                    <p><span class="font-medium">MEI:</span> <span id="mei">Carregando...</span></p>
+                </div>
+                
+                <h2 class="text-xl font-semibold mt-6 mb-4">Sócios</h2>
+                <ul id="socios-list" class="divide-y">
+                    <li>Carregando...</li>
+                </ul>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
 
-          <!-- CARD INFORMACOES -->
-          <div class="flex flex-row gap-4 w-full">
-            <div
-              class="flex flex-col gap-2 rounded-xl p-6 bg-secondary text-text w-full"
-            >
-              <span class="text-sm uppercase text-accent font-bold"
-                >informações</span
-              >
-              <ul class="flex flex-col gap-4">
-                <!-- situacao cadastral -->
-                <li
-                  class="flex flex-row border-b-[1px] border-primary p-5 gap-2"
-                >
-                  <p class="font-bold">Situação Cadastral:</p>
-                  <p class="situacao_cadastral"></p>
-                </li>
-                <!-- porte -->
-                <li
-                  class="flex flex-row border-b-[1px] border-primary p-5 gap-2"
-                >
-                  <p class="font-bold">Porte:</p>
-                  <p class="porte"></p>
-                </li>
-                <!-- natureza juridica -->
-                <li
-                  class="flex flex-row border-b-[1px] border-primary p-5 gap-2"
-                >
-                  <p class="font-bold">Natureza Jurídica:</p>
-                  <p class="natureza_juridica"></p>
-                </li>
-                <!-- tipo -->
-                <li
-                  class="flex flex-row border-b-[1px] border-primary p-5 gap-2"
-                >
-                  <p class="font-bold">Tipo:</p>
-                  <p class="tipo"></p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-          <script type="text/javascript" src="../js/cnpj.js" defer></script>
-      </div>
-      <!-- FICHA - END -->
+<script type="text/javascript" src="../js/cnpj.js" defer></script>
 
-<?php
-require_once "footer.php";
-?>
+<?php require_once "footer.php"; ?>
