@@ -6,9 +6,9 @@ abstract class Database
 
     public function __construct()
     {
-        $host = ""; //db
-        $user = "root"; //gabriel
-        $password = ""; //123123w
+        $host = "db"; //db
+        $user = "gabriel"; //gabriel
+        $password = "123123w"; //123123w
         $databaseName = "leadsearch";
 
         try {
@@ -20,7 +20,7 @@ abstract class Database
             );
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            //$this->createTables();
+            $this->createTables();
         } catch (PDOException $e) {
             die("Connection or database creation error: " . $e->getMessage());
         }
