@@ -65,7 +65,7 @@ class SearchAdvancedDAO extends Database {
         ?int $municipality = null, 
         ?string $state = null, 
         int $page = 1,      
-        int $perPage = 10  
+        int $perPage = 10
     ) {
         $offset = ($page - 1) * $perPage; 
 

@@ -3,10 +3,10 @@
 <div class="flex flex-col justify-center p-24">
     <h1 class="text-2xl mb-4">Busca Avançada</h1>
     <h2 class="text-xl mb-2">Filtros:</h2>
-    <form class="bg-white p-6 rounded shadow-md" action="#" method="POST">
+    <form class="bg-[var(--secondary-color)] p-6 rounded shadow-md " action="#" method="POST">
 
-        <label class="block text-gray-700 font-medium mb-1">Cnae Principal:</label>
-        <select class="w-full p-2 border rounded mb-4" name="cnae_code" id="cnae">
+        <label class="block text-[var(--text-color)] font-medium mb-1">Cnae Principal:</label>
+        <select class="w-full p-2 border rounded mb-4 text-[var(--primary-color)]" name="cnae_code" id="cnae">
             <option value="" selected></option>
             <?php foreach ($cnaes as $cnae):
                 $selected = (!empty($searchResults['filters']['cnae_code']) && $searchResults['filters']['cnae_code'] == $cnae['codigo']) ? 'selected' : '';
@@ -17,8 +17,8 @@
             <?php endforeach; ?>
         </select>
 
-        <label class="block text-gray-700 font-medium mb-1">Estado:</label>
-        <select class="w-full p-2 border rounded mb-4" name="state" id="state">
+        <label class="block text-[var(--text-color)] font-medium mb-1">Estado:</label>
+        <select class="w-full p-2 border rounded mb-4 text-[var(--primary-color)]" name="state" id="state">
             <option value="" selected></option>
             <?php
             $states = [ 'AC'=>'Acre', 'AL'=>'Alagoas', 'AP'=>'Amapá', 'AM'=>'Amazonas', 'BA'=>'Bahia', 
@@ -36,8 +36,8 @@
             <?php endforeach; ?>
         </select>
 
-        <label class="block text-gray-700 font-medium mb-1">Município:</label>
-        <select class="w-full p-2 border rounded mb-4" name="municipality" id="municipality">
+        <label class="block text-[var(--text-color)] font-medium mb-1">Município:</label>
+        <select class="w-full p-2 border rounded mb-4 text-[var(--primary-color)]" name="municipality" id="municipality">
             <option value="" selected></option>
             <?php foreach ($municipios as $municipio):
                 $selected = (!empty($searchResults['filters']['municipality']) && $searchResults['filters']['municipality'] == $municipio['codigo']) ? 'selected' : '';

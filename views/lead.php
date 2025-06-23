@@ -1,7 +1,7 @@
 <?php require_once "header.php"; ?>
 
 <div id="lead-container" class="container mx-auto p-6">
-    <div class="bg-white rounded-lg shadow-md p-6">
+    <div class="bg-[var(--secondary-color)] rounded-lg shadow-md p-6">
         <h1 class="text-2xl font-bold mb-6">Detalhes da Empresa</h1>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
