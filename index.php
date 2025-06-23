@@ -18,7 +18,7 @@ $routes = [
         exit;
     },
 
-      '/search_advanced' => function() {
+    '/search_advanced' => function() {
         if(isset($_SESSION['user']))
         {
             $controller = new SearchAdvancedController();
@@ -32,7 +32,7 @@ $routes = [
                 $searchResults = $controller->searchDataBase();
             }
 
-            require_once 'views/search_advanced.php';//Add commentMore actions
+            require_once 'views/search_advanced.php';
         }
         else
         {
@@ -42,6 +42,7 @@ $routes = [
         }
         
     },
+
 
     '/about' => function () {
         require_once 'views/about.php';

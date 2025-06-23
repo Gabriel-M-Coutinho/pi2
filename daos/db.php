@@ -6,9 +6,9 @@ abstract class Database
 
     public function __construct()
     {
-        $host = "localhost"; //db
-        $user = "root"; //gabriel
-        $password = ""; //123123w
+        $host = "db"; //db
+        $user = "gabriel"; //gabriel
+        $password = "123123w"; //123123w
         $databaseName = "leadsearch";
 
         try {
