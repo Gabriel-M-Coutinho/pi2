@@ -18,20 +18,30 @@ $routes = [
         exit;
     },
 
-  '/search_advanced' => function() {
-    $controller = new SearchAdvancedController();
-    
-    $cnaes = $controller->cnaes();
-    $municipios = $controller->municipios();
-    
-    $searchResults = [];
+      '/search_advanced' => function() {
+        if(isset($_SESSION['user']))
+        {
+            $controller = new SearchAdvancedController();
+        
+            $cnaes = $controller->cnaes();
+            $municipios = $controller->municipios();
+        
+            $searchResults = [];
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $searchResults = $controller->searchDataBase();
-    }
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $searchResults = $controller->searchDataBase();
+            }
 
-    require_once 'views/search_advanced.php';
-},
+            require_once 'views/search_advanced.php';//Add commentMore actions
+        }
+        else
+        {
+            $controller = new UserController();
+            $controller->login(); 
+            exit;
+        }
+        
+    },
 
     '/about' => function () {
         require_once 'views/about.php';
