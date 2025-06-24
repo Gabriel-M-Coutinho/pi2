@@ -1,32 +1,58 @@
-# README - Sistema de Mapeamento de Postos de Saúde
 
-## 📌 Descrição do Projeto
-Sistema web para cadastro e geolocalização de postos de saúde, desenvolvido em PHP seguindo o padrão MVC (Model-View-Controller). O projeto permite:
-- Cadastro de novos postos de saúde
-- Visualização em mapa dos postos cadastrados
-- Gestão das unidades de saúde
+# 📊 Sistema de Coleta de Leads via Receita Federal
 
-## 🛠️ Pré-requisitos
-- XAMPP instalado (Apache + MySQL + PHP)
-- Navegador moderno (Chrome, Firefox, Edge)
-- Conexão com internet (para APIs de mapa)
+Sistema desenvolvido em PHP com MySQL para coleta e estruturação de **leads empresariais** a partir de dados públicos da **Receita Federal**. O objetivo é extrair, processar e armazenar informações de empresas, transformando esses dados em **leads qualificados** para uso em campanhas, prospecção ou CRM.
 
-## 🚀 Como Executar o Projeto
+## 🚀 Funcionalidades
 
-1. **Configuração do Ambiente**:
-   - Inicie o XAMPP e ative os módulos Apache e MySQL
-   - Clone/Mova o projeto para a pasta `htdocs` do XAMPP
+- 🔍 Consulta automatizada a dados da Receita Federal (ex: CNPJ).
+- 📥 Extração de dados como nome empresarial, CNPJ, natureza jurídica, CNAE, endereço, etc.
+- 🧠 Processamento e padronização dos dados para estruturação no banco.
+- 💾 Armazenamento dos dados em banco MySQL.
+- 📈 Interface administrativa para visualizar e exportar leads.
+- 🔐 Controle de acesso por autenticação básica.
 
-2. **Banco de Dados**:
-   - Acesse phpMyAdmin (http://localhost/phpmyadmin)
+## 🧰 Tecnologias Utilizadas
+
+- **PHP** 8+
+- **MySQL** 5.7+
+- **cURL** para requisições HTTP
+- **HTML/CSS/JS** (Bootstrap ou outro framework opcional)
+- **Composer** (opcional, para organizar dependências)
+
+## ⚙️ Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/lead-coletor.git
+```
+
+2. Configure o banco de dados:
+   - Crie um banco MySQL (ex: `leads_db`)
+   - Importe o arquivo SQL da pasta `database/`
+
+3. Configure o arquivo de conexão:
+```php
+// config/db.php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'leads_db');
+define('DB_USER', 'seu_usuario');
+define('DB_PASS', 'sua_senha');
+```
+
+4. Instale as dependências (se usar Composer):
+```bash
+composer install
+```
+
+5. Acesse via navegador:
+```
+http://localhost/lead-coletor/public/
+```
 
 
-3. **Configuração**:
-   - Edite o arquivo `daos/db.php` com suas credenciais do MySQL
-   - Configure a API de mapas no arquivo `config/maps.php` (Google Maps ou similar)
+## 🛡️ Aviso Legal
 
-4. **Acesso**:
-   - No navegador, acesse: http://localhost/nome-da-pasta-do-projeto
-
+Este sistema utiliza dados públicos da Receita Federal. É de responsabilidade do **usuário final** respeitar a **LGPD** e demais legislações vigentes quanto ao uso e armazenamento dessas informações.
 
 
